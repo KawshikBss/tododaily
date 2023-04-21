@@ -10,21 +10,36 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
         <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="stylesheet" href="/stylesheets/authLayout.css" />
     </head>
     <body>
-        <%- include('components/navbar') -%>
         <div class="container">
             <div class="form-container">
+                <span class="form-logo">
+                    <a href="/" class="form-logo-link"> Todo Daily </a>
+                </span>
+                <h3 class="form-heading">Sign In</h3>
                 <form class="form-field-group">
                     <span class="form-field"
-                        ><i class="fa-solid fa-envelope"></i>
+                        ><span class="form-field-label"
+                            ><i class="fa-solid fa-envelope"></i
+                        ></span>
                         <input class="form-field-input" />
                     </span>
                     <span class="form-field"
-                        ><i class="fa-solid fa-lock"></i>
+                        ><span class="form-field-label"
+                            ><i class="fa-solid fa-lock"></i
+                        ></span>
                         <input class="form-field-input" />
                     </span>
+                    <input class="form-submit" type="submit" value="Sign In" />
                 </form>
+                <span class="form-footer-text"
+                    >Don't have an account?
+                    <a href="/auth/signup" class="form-footer-text--highlight"
+                        >Sign Up</a
+                    ></span
+                >
             </div>
         </div>
     </body>
