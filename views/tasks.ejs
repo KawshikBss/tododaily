@@ -18,14 +18,14 @@
             <h1 class="tasks-heading">Tasks</h1>
             <span class="tasks-subheading">4/6 completed</span>
             <ul class="tasks-list">
+                <% tasks.forEach((task) => { %>
                 <li class="tasks-list-item">
                     <input type="checkbox" class="task-check-btn" />
                     <span class="task">
                         <div class="task-info">
-                            <span class="task-title">Task1</span>
+                            <span class="task-title"><%= task.title %></span>
                             <p class="task-description">
-                                Aliquip non eiusmod Lorem duis qui magna
-                                cupidatat Lorem culpa et ea velit laborum.
+                                <%= task.description %>
                             </p>
                         </div>
                         <span class="task-actions">
@@ -35,29 +35,7 @@
                         </span>
                     </span>
                 </li>
-                <li class="tasks-list-item">
-                    <input type="checkbox" class="task-check-btn" />
-                    <span class="task">
-                        <div class="task-info">
-                            <span class="task-title">Task1</span>
-                            <p class="task-description">
-                                Aliquip non eiusmod Lorem duis qui magna
-                                cupidatat Lorem culpa et ea velit laborum.
-                                Aliquip non eiusmod Lorem duis qui magna
-                                cupidatat Lorem culpa et ea velit laborum.
-                                Aliquip non eiusmod Lorem duis qui magna
-                                cupidatat Lorem culpa et ea velit laborum.
-                                Aliquip non eiusmod Lorem duis qui magna
-                                cupidatat Lorem culpa et ea velit laborum.
-                            </p>
-                        </div>
-                        <span class="task-actions">
-                            <span class="task-action-btn"
-                                ><i class="fa-solid fa-trash"></i
-                            ></span>
-                        </span>
-                    </span>
-                </li>
+                <% }) %>
             </ul>
             <form class="task-form" action="/tasks" method="post">
                 <input
