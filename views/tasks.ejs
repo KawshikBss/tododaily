@@ -59,6 +59,22 @@
                     </span>
                 </li>
             </ul>
+            <form class="task-form" action="/tasks" method="post">
+                <input
+                    type="text"
+                    class="task-form-field-input"
+                    name="title"
+                    placeholder="Task Title"
+                />
+                <textarea
+                    class="task-form-field-input"
+                    name="description"
+                    placeholder="Task Description (Optional)"
+                ></textarea>
+                <button class="task-form-submit" type="submit">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+            </form>
         </div>
     </body>
 </html>
