@@ -95,3 +95,48 @@
     line-height: 1.5em;
     cursor: pointer;
 }
+
+.task-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.task-form-field-input {
+    width: 30%;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    border: 1px solid #ff4f5a;
+}
+
+.task-form-submit {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 2px solid #ff4f5a;
+    overflow: hidden;
+    background-color: #ffffff;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.task-form-submit i {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    color: #ff4f5a;
+    background-color: #ffffff;
+    transition: 0.3s all ease-in-out;
+}
+
+.task-form-submit:hover i {
+    color: #ffffff;
+    background-color: #ff4f5a;
+}
