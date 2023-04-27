@@ -6,8 +6,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var passport = require("passport");
 var strategy = require("./strategy");
-
-passport.use(strategy);
+var session = require("express-session");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -25,6 +24,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+// configure express-session middleware
+app.use(
+    session({
+        secret: "i-am-zilch",
+        resave: false,
+        saveUninitialized: false,
+    })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(strategy);
 
 mongoose.connect("mongodb://127.0.0.1:27017/tododaily", {
     useNewUrlParser: true,
