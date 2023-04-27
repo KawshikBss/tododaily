@@ -4,9 +4,9 @@ var Task = require("../models/tasks");
 
 router.get("/", async (req, res, next) => {
     try {
+        var user = req.user;
         const tasks = await Task.find();
-        console.log(tasks);
-        res.render("tasks", { tasks: tasks });
+        res.render("tasks", { user: user, tasks: tasks });
     } catch (err) {
         console.error(err);
     }
