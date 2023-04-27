@@ -21,18 +21,32 @@
                     </a>
                 </span>
                 <h3 class="form-heading">Sign In</h3>
-                <form class="form-field-group">
+                <form
+                    action="/auth/signin"
+                    method="post"
+                    class="form-field-group"
+                >
                     <span class="form-field"
                         ><span class="form-field-label"
-                            ><i class="fa-solid fa-envelope"></i
+                            ><i class="fa-solid fa-user"></i
                         ></span>
-                        <input class="form-field-input" />
+                        <input
+                            name="username"
+                            type="text"
+                            placeholder="Enter Username"
+                            class="form-field-input"
+                        />
                     </span>
                     <span class="form-field"
                         ><span class="form-field-label"
                             ><i class="fa-solid fa-lock"></i
                         ></span>
-                        <input class="form-field-input" />
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="Enter Password"
+                            class="form-field-input"
+                        />
                     </span>
                     <input class="form-submit" type="submit" value="Sign In" />
                 </form>
