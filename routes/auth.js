@@ -32,7 +32,7 @@ router.post("/signup", async (req, res, next) => {
         if (err) {
             return res.redirect("/auth/singup");
         }
-        return res.redirect("/");
+        return res.redirect("/tasks");
     });
 });
 
