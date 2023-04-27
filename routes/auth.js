@@ -2,10 +2,22 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/users");
 var bcrypt = require("bcrypt");
+var passport = require("passport");
 
 router.get("/signin", (req, res, next) => {
     res.render("signin");
 });
+
+router.post(
+    "/signin",
+    passport.authenticate("local", {
+        failureRedirect: "/auth/signin",
+        failureMessage: true,
+    }),
+    (req, res, next) => {
+        res.redirect("/tasks");
+    }
+);
 
 router.get("/signup", (req, res, next) => {
     res.render("signup");
@@ -33,6 +45,15 @@ router.post("/signup", async (req, res, next) => {
             return res.redirect("/auth/singup");
         }
         return res.redirect("/tasks");
+    });
+});
+
+router.get("/signout", function (req, res, next) {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect("/");
     });
 });
 
