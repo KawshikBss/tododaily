@@ -38,6 +38,22 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(strategy);
 
+passport.serializeUser(function (user, cb) {
+    process.nextTick(function () {
+        return cb(null, {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+        });
+    });
+});
+
+passport.deserializeUser(function (user, cb) {
+    process.nextTick(function () {
+        return cb(null, user);
+    });
+});
+
 mongoose.connect("mongodb://127.0.0.1:27017/tododaily", {
     useNewUrlParser: true,
 });
