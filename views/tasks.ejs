@@ -29,9 +29,17 @@
                             </p>
                         </div>
                         <span class="task-actions">
-                            <span class="task-action-btn"
-                                ><i class="fa-solid fa-trash"></i
-                            ></span>
+                            <form action="/tasks/delete" method="post">
+                                <input
+                                    style="display: none"
+                                    type="text"
+                                    name="taskID"
+                                    value="<%= task.id %>"
+                                />
+                                <button type="submit" class="task-action-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
                         </span>
                     </span>
                 </li>
