@@ -27,6 +27,16 @@ router.post("/", async (req, res, next) => {
     res.redirect("/tasks");
 });
 
+router.post("/delete", async (req, res, next) => {
+    if (!req.user || !req.body.taskID) return res.redirect("/tasks");
+    try {
+        var task = await Task.deleteOne({ _id: req.body.taskID });
+    } catch (err) {
+        console.error(err);
+    }
+    return res.redirect("/tasks");
+});
+
 const getTaskByID = async (req, res, next) => {};
 
 module.exports = router;
