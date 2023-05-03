@@ -3,6 +3,7 @@ var router = express.Router();
 var Task = require("../models/tasks");
 
 router.get("/", async (req, res, next) => {
+    if (!req.user) return res.redirect("/auth/signin");
     try {
         var user = req.user;
         const tasks = await Task.find({ user_id: user.id });
@@ -25,6 +26,20 @@ router.post("/", async (req, res, next) => {
         console.error(err);
     }
     res.redirect("/tasks");
+});
+
+router.post("/status", async (req, res, next) => {
+    if (!req.user || !req.body.taskID) return res.redirect("/tasks");
+    try {
+        var task = await Task.findById(req.body.taskID);
+        await Task.findOneAndUpdate(
+            { _id: req.body.taskID },
+            { completed: !task.completed }
+        );
+    } catch (err) {
+        console.error(err);
+    }
+    return res.redirect("/tasks");
 });
 
 router.post("/delete", async (req, res, next) => {
