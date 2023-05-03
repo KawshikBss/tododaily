@@ -8,9 +8,12 @@
     </span>
     <ul class="navbar-nav">
         <li class="navbar-nav-item">
-            <a href="/auth/signout" class="navbar-link"
-                ><%= user?.username? user.username: 'User Name' %></a
+            <span class="navbar-link"
+                ><%= user?.username? user.username: 'User Name' %></span
             >
+        </li>
+        <li class="navbar-nav-item">
+            <a href="/auth/signout" class="navbar-link">Logout</a>
         </li>
     </ul>
 </nav>
