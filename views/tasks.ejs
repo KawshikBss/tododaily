@@ -36,7 +36,11 @@
                         </button>
                     </form>
                     <span class="task">
+                        <% if (!task.completed) { %>
                         <div class="task-info">
+                            <% } else { %>
+                                <div class="task-info completed">
+                                <% } %>
                             <span class="task-title"><%= task.title %></span>
                             <p class="task-description">
                                 <%= task.description %>
