@@ -20,7 +20,21 @@
             <ul class="tasks-list">
                 <% tasks.forEach((task) => { %>
                 <li class="tasks-list-item">
-                    <input type="checkbox" class="task-check-btn" />
+                    <form action="/tasks/status" method="post">
+                        <input
+                            style="display: none"
+                            type="text"
+                            name="taskID"
+                            value="<%= task.id %>"
+                        />
+                        <button type="submit" class="task-action-btn">
+                            <% if (!task.completed) { %>
+                            <i class="fa-regular fa-square"></i>
+                            <% } else { %>
+                            <i class="fa-regular fa-square-check"></i>
+                            <% } %>
+                        </button>
+                    </form>
                     <span class="task">
                         <div class="task-info">
                             <span class="task-title"><%= task.title %></span>
