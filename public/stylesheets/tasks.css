@@ -87,6 +87,15 @@
     line-height: 1.5em;
 }
 
+.task-info.completed .task-title {
+    text-decoration: line-through;
+    color: #ff4f5a;
+}
+
+.task-info.completed .task-description {
+    text-decoration: line-through;
+}
+
 .task-action-btn {
     color: #ff4f5a;
     font-size: 16px;
