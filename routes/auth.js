@@ -5,6 +5,7 @@ var bcrypt = require("bcrypt");
 var passport = require("passport");
 
 router.get("/signin", (req, res, next) => {
+    if (req.user) return res.redirect("/tasks");
     res.render("signin");
 });
 
@@ -20,6 +21,7 @@ router.post(
 );
 
 router.get("/signup", (req, res, next) => {
+    if (req.user) return res.redirect("/tasks");
     res.render("signup");
 });
 
